@@ -354,6 +354,7 @@ function giveUp() {
   document.getElementById("guessBtn").disabled  = true;
   document.getElementById("giveUpBtn").disabled = true;
 
+  totalWins++;  // counts as a completed game
   updateScore(range, getDiffLabel());
   updateTimers(endTime);
   updateStreakDisplay();
@@ -394,12 +395,13 @@ function updateScore(score, diffLabel) {
 function updateLeaderboardDisplay() {
   var items = document.getElementsByName("leaderboard");
   for (var i = 0; i < items.length; i++) {
+    var diffEl = document.getElementById("lb-diff-" + i);
     if (scores[i] !== undefined) {
-      items[i].querySelector(".lb-score").textContent = scores[i];
-      items[i].querySelector(".lb-diff").textContent  = scoreDiffs[i] || "";
+      items[i].textContent = scores[i];
+      if (diffEl) diffEl.textContent = scoreDiffs[i] || "";
     } else {
-      items[i].querySelector(".lb-score").textContent = "—";
-      items[i].querySelector(".lb-diff").textContent  = "—";
+      items[i].textContent = "—";
+      if (diffEl) diffEl.textContent = "—";
     }
   }
 }
