@@ -10,16 +10,12 @@
 </head>
 <body>
 
-  <!-- Animated background grid -->
   <div class="bg-grid"></div>
   <div class="bg-scanlines"></div>
-
-  <!-- Floating particles -->
   <div class="particles" id="particles"></div>
 
   <div class="game-wrapper">
 
-    <!-- Header -->
     <header class="game-header">
       <div class="logo-block">
         <div class="logo-text">NUMBLAST</div>
@@ -33,17 +29,14 @@
 
     <div class="main-grid">
 
-      <!-- LEFT PANEL: Controls -->
       <section class="panel panel-controls">
         <div class="panel-label">MISSION BRIEFING</div>
 
-        <!-- Player name display -->
         <div class="player-badge">
           <span class="player-icon">◈</span>
           <span id="playerNameDisplay">AGENT ???</span>
         </div>
 
-        <!-- Difficulty -->
         <div class="section-title">SELECT DIFFICULTY</div>
         <div class="difficulty-group">
           <label class="diff-card" id="label-e">
@@ -72,7 +65,6 @@
           </label>
         </div>
 
-        <!-- Custom difficulty (BEYOND) -->
         <div class="section-title">CUSTOM RANGE <span class="badge-new">NEW</span></div>
         <div class="custom-range-row">
           <input type="number" id="customMin" placeholder="MIN" min="1" max="999" class="custom-input">
@@ -81,7 +73,6 @@
           <button class="btn-custom" id="customBtn">SET</button>
         </div>
 
-        <!-- Action buttons -->
         <button class="btn-play" id="playBtn">▶ LAUNCH ROUND</button>
 
         <div class="action-row">
@@ -89,28 +80,22 @@
           <button class="btn-giveup" id="giveUpBtn" disabled>EJECT ✕</button>
         </div>
 
-        <!-- Keyboard hint -->
-        <div class="hint-text">⌨ Press <kbd>Enter</kbd> to guess</div>
+        <div class="hint-text">Press <kbd>Enter</kbd> to guess</div>
       </section>
 
-      <!-- CENTER PANEL: Game arena -->
       <section class="panel panel-arena">
         <div class="panel-label">GAME ARENA</div>
 
-        <!-- Message display -->
         <div class="arena-msg-wrap">
           <div class="arena-glow-ring" id="glowRing"></div>
           <h3 id="msg" class="arena-msg">READY TO PLAY?<br><span class="msg-sub">Select difficulty and launch</span></h3>
         </div>
 
-        <!-- Guess input -->
         <div class="guess-wrap">
           <div class="guess-decoration">?</div>
           <input type="number" id="guess" class="guess-input" placeholder="YOUR NUMBER" min="1" autocomplete="off">
-          <div class="guess-bar"></div>
         </div>
 
-        <!-- Proximity meter (BEYOND) -->
         <div class="proximity-section">
           <div class="prox-label">PROXIMITY SENSOR</div>
           <div class="proximity-bar-wrap">
@@ -125,7 +110,6 @@
           <div class="prox-hint" id="proxHint">—</div>
         </div>
 
-        <!-- Round progress (BEYOND) -->
         <div class="round-info-row">
           <div class="round-chip">
             <span class="chip-label">ROUND</span>
@@ -135,107 +119,83 @@
             <span class="chip-label">GUESSES</span>
             <span class="chip-val" id="guessDisplay">0</span>
           </div>
-          <div class="round-chip">
-            <span class="chip-label">STREAK 🔥</span>
-            <span class="chip-val" id="streakDisplay">0</span>
-          </div>
         </div>
 
-        <!-- Score quality feedback (BEYOND) -->
         <div class="feedback-banner" id="feedbackBanner"></div>
       </section>
 
-      <!-- RIGHT PANEL: Stats & Leaderboard -->
       <section class="panel panel-stats">
         <div class="panel-label">MISSION STATS</div>
 
         <div class="stat-grid">
           <div class="stat-card">
-            <div class="stat-icon">🏆</div>
             <div class="stat-body">
               <div class="stat-label">WINS</div>
               <p id="wins" class="stat-val">0</p>
             </div>
           </div>
           <div class="stat-card">
-            <div class="stat-icon">📊</div>
             <div class="stat-body">
               <div class="stat-label">AVG SCORE</div>
               <p id="avgScore" class="stat-val">—</p>
             </div>
           </div>
           <div class="stat-card">
-            <div class="stat-icon">⚡</div>
             <div class="stat-body">
               <div class="stat-label">FASTEST</div>
               <p id="fastest" class="stat-val">—</p>
             </div>
           </div>
           <div class="stat-card">
-            <div class="stat-icon">⏱</div>
             <div class="stat-body">
               <div class="stat-label">AVG TIME</div>
               <p id="avgTime" class="stat-val">—</p>
             </div>
           </div>
           <div class="stat-card">
-            <div class="stat-icon">🎯</div>
             <div class="stat-body">
               <div class="stat-label">WIN RATE</div>
               <p id="winRate" class="stat-val">—</p>
             </div>
           </div>
-          <div class="stat-card">
-            <div class="stat-icon">🔥</div>
-            <div class="stat-body">
-              <div class="stat-label">BEST STREAK</div>
-              <p id="bestStreak" class="stat-val">0</p>
-            </div>
-          </div>
         </div>
 
-        <!-- Leaderboard -->
         <div class="section-title" style="margin-top:1.5rem">TOP SCORES</div>
-        <ol class="leaderboard-list" id="leaderboardList">
+        <ol class="leaderboard-list">
           <div class="lb-item lb-1">
-            <span class="lb-rank">🥇</span>
+            <span class="lb-rank">1</span>
             <li name="leaderboard" class="lb-score">—</li>
             <span class="lb-diff" id="lb-diff-0">—</span>
           </div>
           <div class="lb-item lb-2">
-            <span class="lb-rank">🥈</span>
+            <span class="lb-rank">2</span>
             <li name="leaderboard" class="lb-score">—</li>
             <span class="lb-diff" id="lb-diff-1">—</span>
           </div>
           <div class="lb-item lb-3">
-            <span class="lb-rank">🥉</span>
+            <span class="lb-rank">3</span>
             <li name="leaderboard" class="lb-score">—</li>
             <span class="lb-diff" id="lb-diff-2">—</span>
           </div>
         </ol>
 
-        <!-- Guess history (BEYOND) -->
         <div class="section-title" style="margin-top:1.5rem">GUESS HISTORY</div>
         <div class="history-list" id="historyList">
           <div class="history-empty">No guesses yet</div>
         </div>
 
-        <!-- Reset stats button (BEYOND) -->
         <button class="btn-reset-stats" id="resetStatsBtn">↺ RESET ALL STATS</button>
       </section>
     </div>
   </div>
 
-  <!-- Win celebration overlay (BEYOND) -->
   <div class="celebration-overlay" id="celebrationOverlay">
     <div class="celebration-content">
-      <div class="celebration-emoji" id="celebEmoji">🎉</div>
       <div class="celebration-title" id="celebTitle">CORRECT!</div>
       <div class="celebration-sub" id="celebSub"></div>
     </div>
   </div>
 
-  <!-- Toast notifications (BEYOND) -->
   <div class="toast-stack" id="toastStack"></div>
 
   <script src="script.js" defer></script>
